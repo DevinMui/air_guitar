@@ -192,8 +192,18 @@ int main(int argc, char** argv)
             std::string pose = collector.currentPose.toString();
             float init_pitch = collector.pitch_w;
             float init_yaw = collector.yaw_w;
-            float move_pitch = (init_pitch - pitch) * -1; // calculate the movement of the pitch
-            float move_yaw = (init_yaw - yaw) * -1; // calculate the movement of the yaw
+            float move_pitch = 0;
+            float move_yaw = 0;
+            if(init_pitch - pitch < 0) {
+                move_pitch = (init_pitch - pitch) * -1;
+            } else {
+                move_pitch = init_pitch - pitch; // calculate the movement of the pitch
+            }
+            if(init_yaw - yaw < 0) {
+                move_yaw = (init_yaw - yaw) * -1; // calculate the movement of the yaw
+            } else {
+                move_yaw = init_yaw - yaw;
+            }
             // if roll > 10? or something
             // after calculations
             if(move_pitch >= 1) {
