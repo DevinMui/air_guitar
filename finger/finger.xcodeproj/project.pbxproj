@@ -10,6 +10,8 @@
 		037402D81BDBD58300389DCC /* finger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 037402D71BDBD58300389DCC /* finger.cpp */; };
 		037402FF1BDBDB0B00389DCC /* myo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037402FE1BDBDB0B00389DCC /* myo.framework */; };
 		037403001BDBDB2200389DCC /* myo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037402FE1BDBDB0B00389DCC /* myo.framework */; };
+		037403211BDC45B600389DCC /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0374031E1BDC45B600389DCC /* libLeap.dylib */; };
+		037403221BDC472A00389DCC /* libLeap.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0374031E1BDC45B600389DCC /* libLeap.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -19,6 +21,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				037403221BDC472A00389DCC /* libLeap.dylib in CopyFiles */,
 				037403001BDBDB2200389DCC /* myo.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -29,6 +32,9 @@
 		037402D41BDBD58300389DCC /* finger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = finger; sourceTree = BUILT_PRODUCTS_DIR; };
 		037402D71BDBD58300389DCC /* finger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = finger.cpp; sourceTree = "<group>"; };
 		037402FE1BDBDB0B00389DCC /* myo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = myo.framework; sourceTree = "<group>"; };
+		0374031E1BDC45B600389DCC /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libLeap.dylib; sourceTree = "<group>"; };
+		0374031F1BDC45B600389DCC /* LeapMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapMath.h; sourceTree = "<group>"; };
+		037403201BDC45B600389DCC /* Leap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				037403211BDC45B600389DCC /* libLeap.dylib in Frameworks */,
 				037402FF1BDBDB0B00389DCC /* myo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +78,9 @@
 		037402E01BDBD5DD00389DCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0374031E1BDC45B600389DCC /* libLeap.dylib */,
+				0374031F1BDC45B600389DCC /* LeapMath.h */,
+				037403201BDC45B600389DCC /* Leap.h */,
 				037402FE1BDBDB0B00389DCC /* myo.framework */,
 			);
 			name = Frameworks;
@@ -226,6 +236,10 @@
 					"$(PROJECT_DIR)",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = YES;
 			};
@@ -239,6 +253,10 @@
 					"$(PROJECT_DIR)",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = YES;
 			};
