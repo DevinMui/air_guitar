@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <string>
 #include <algorithm>
+#include <cstring>
 
 // The only file that needs to be included to use the Myo C++ SDK is myo.hpp.
 #include <myo/myo.hpp>
@@ -186,7 +187,14 @@ int main(int argc, char** argv)
             hub.run(1000/20);
             // After processing events, we call the print() member function we defined above to print out the values we've
             // obtained from any events that have occurred.
-            collector.print();
+            //collector.print();
+            if(collector.currentPose.toString() == "fist"){
+                std::cout << "FISTBUMP!" << std::endl;
+                // play music based on calculations from leap motion
+            } else {
+                std::cout << "No fistbump :(" << std::endl;
+            }
+            
         }
         
         // If a standard exception occurred, we print out its message and exit.
