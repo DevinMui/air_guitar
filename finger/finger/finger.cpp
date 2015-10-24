@@ -6,6 +6,9 @@
 #include <string>
 #include <algorithm>
 #include <cstring>
+#include <array>
+#include <sstream>
+#include <stdexcept>
 
 // The only file that needs to be included to use the Myo C++ SDK is myo.hpp.
 #include <myo/myo.hpp>
@@ -16,7 +19,7 @@
 class DataCollector : public myo::DeviceListener {
 public:
     DataCollector()
-    : onArm(false), isUnlocked(false), roll_w(0), pitch_w(0), yaw_w(0), currentPose()
+    : onArm(false), isUnlocked(true), roll_w(0), pitch_w(0), yaw_w(0), currentPose(), emgSamples()
     {
     }
     
@@ -143,6 +146,32 @@ public:
     // These values are set by onOrientationData() and onPose() above.
     int roll_w, pitch_w, yaw_w;
     myo::Pose currentPose;
+    
+    // onEmgData() is called whenever a paired Myo has provided new EMG data, and EMG streaming is enabled.
+    void onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* emg)
+    {
+        for (int i = 0; i < 8; i++) {
+            emgSamples[i] = emg[i];
+        }
+    }
+    // There are other virtual functions in DeviceListener that we could override here, like onAccelerometerData().
+    // For this example, the functions overridden above are sufficient.
+    // We define this function to print the current values that were updated by the on...() functions above.
+    void print_emg()
+    {
+        // Clear the current line
+        std::cout << '\r';
+        // Print out the EMG data.
+        for (size_t i = 0; i < emgSamples.size(); i++) {
+            std::ostringstream oss;
+            oss << static_cast<int>(emgSamples[i]);
+            std::string emgString = oss.str();
+            std::cout << '[' << emgString << std::string(4 - emgString.size(), ' ') << ']';
+        }
+        std::cout << std::flush;
+    }
+    // The values of this array is set by onEmgData() above.
+    std::array<int8_t, 8> emgSamples;
 };
 
 int main(int argc, char** argv)
@@ -170,7 +199,7 @@ int main(int argc, char** argv)
         // We've found a Myo.
         std::cout << "Connected to a Myo armband!" << std::endl << std::endl;
         
-        
+        myo->setStreamEmg(myo::Myo::streamEmgEnabled);
         
         // Next we construct an instance of our DeviceListener, so that we can register it with the Hub.
         DataCollector collector;
@@ -182,6 +211,7 @@ int main(int argc, char** argv)
         // Finally we enter our main loop.
         float pitch = collector.pitch_w;
         float yaw = collector.yaw_w;
+
         while (1) {
             // In each iteration of our main loop, we run the Myo event loop for a set number of milliseconds.
             // In this case, we wish to update our display 20 times a second, so we run for 1000/20 milliseconds.
@@ -204,7 +234,9 @@ int main(int argc, char** argv)
             } else {
                 move_yaw = init_yaw - yaw;
             }
-            // if roll > 10? or something
+            
+            collector.print_emg();
+            
             // after calculations
             if(move_pitch >= 1) {
                 std::cout << "YES" << std::endl;
