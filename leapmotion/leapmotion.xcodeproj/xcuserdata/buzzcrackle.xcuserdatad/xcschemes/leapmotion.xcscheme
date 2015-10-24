@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "02E5A2441BDBDC4100BDCBC2"
+               BlueprintIdentifier = "02E5A27F1BDBEFBF00BDCBC2"
                BuildableName = "leapmotion"
                BlueprintName = "leapmotion"
                ReferencedContainer = "container:leapmotion.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "02E5A2441BDBDC4100BDCBC2"
+            BlueprintIdentifier = "02E5A27F1BDBEFBF00BDCBC2"
             BuildableName = "leapmotion"
             BlueprintName = "leapmotion"
             ReferencedContainer = "container:leapmotion.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "02E5A2441BDBDC4100BDCBC2"
+            BlueprintIdentifier = "02E5A27F1BDBEFBF00BDCBC2"
             BuildableName = "leapmotion"
             BlueprintName = "leapmotion"
             ReferencedContainer = "container:leapmotion.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "02E5A2441BDBDC4100BDCBC2"
+            BlueprintIdentifier = "02E5A27F1BDBEFBF00BDCBC2"
             BuildableName = "leapmotion"
             BlueprintName = "leapmotion"
             ReferencedContainer = "container:leapmotion.xcodeproj">

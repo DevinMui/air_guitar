@@ -7,75 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02E5A2491BDBDC4100BDCBC2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02E5A2481BDBDC4100BDCBC2 /* main.cpp */; };
-		02E5A2501BDBDC8C00BDCBC2 /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E5A24F1BDBDC8C00BDCBC2 /* libLeap.dylib */; settings = {ASSET_TAGS = (); }; };
+		02E5A2841BDBEFBF00BDCBC2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02E5A2831BDBEFBF00BDCBC2 /* main.cpp */; };
+		02E5A28E1BDBEFF400BDCBC2 /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E5A28D1BDBEFF400BDCBC2 /* libLeap.dylib */; settings = {ASSET_TAGS = (); }; };
+		02E5A28F1BDBF00500BDCBC2 /* libLeap.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02E5A28D1BDBEFF400BDCBC2 /* libLeap.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		02E5A2431BDBDC4100BDCBC2 /* CopyFiles */ = {
+		02E5A27E1BDBEFBF00BDCBC2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				02E5A28F1BDBF00500BDCBC2 /* libLeap.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		02E5A2451BDBDC4100BDCBC2 /* leapmotion */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = leapmotion; sourceTree = BUILT_PRODUCTS_DIR; };
-		02E5A2481BDBDC4100BDCBC2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		02E5A24F1BDBDC8C00BDCBC2 /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libLeap.dylib; path = "../../../Downloads/LeapDeveloperKit_2.3.1+31549_mac/LeapSDK/lib/libLeap.dylib"; sourceTree = "<group>"; };
+		02E5A2801BDBEFBF00BDCBC2 /* leapmotion */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = leapmotion; sourceTree = BUILT_PRODUCTS_DIR; };
+		02E5A2831BDBEFBF00BDCBC2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		02E5A28B1BDBEFE000BDCBC2 /* Leap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leap.h; sourceTree = "<group>"; };
+		02E5A28C1BDBEFE900BDCBC2 /* LeapMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapMath.h; sourceTree = "<group>"; };
+		02E5A28D1BDBEFF400BDCBC2 /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libLeap.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		02E5A2421BDBDC4100BDCBC2 /* Frameworks */ = {
+		02E5A27D1BDBEFBF00BDCBC2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02E5A2501BDBDC8C00BDCBC2 /* libLeap.dylib in Frameworks */,
+				02E5A28E1BDBEFF400BDCBC2 /* libLeap.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02E5A23C1BDBDC4100BDCBC2 = {
+		02E5A2771BDBEFBF00BDCBC2 = {
 			isa = PBXGroup;
 			children = (
-				02E5A2471BDBDC4100BDCBC2 /* leapmotion */,
-				02E5A2461BDBDC4100BDCBC2 /* Products */,
+				02E5A28A1BDBEFC700BDCBC2 /* Frameworks */,
+				02E5A2821BDBEFBF00BDCBC2 /* leapmotion */,
+				02E5A2811BDBEFBF00BDCBC2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		02E5A2461BDBDC4100BDCBC2 /* Products */ = {
+		02E5A2811BDBEFBF00BDCBC2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				02E5A2451BDBDC4100BDCBC2 /* leapmotion */,
+				02E5A2801BDBEFBF00BDCBC2 /* leapmotion */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		02E5A2471BDBDC4100BDCBC2 /* leapmotion */ = {
+		02E5A2821BDBEFBF00BDCBC2 /* leapmotion */ = {
 			isa = PBXGroup;
 			children = (
-				02E5A2481BDBDC4100BDCBC2 /* main.cpp */,
-				02E5A24F1BDBDC8C00BDCBC2 /* libLeap.dylib */,
+				02E5A2831BDBEFBF00BDCBC2 /* main.cpp */,
 			);
 			path = leapmotion;
+			sourceTree = "<group>";
+		};
+		02E5A28A1BDBEFC700BDCBC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02E5A28D1BDBEFF400BDCBC2 /* libLeap.dylib */,
+				02E5A28C1BDBEFE900BDCBC2 /* LeapMath.h */,
+				02E5A28B1BDBEFE000BDCBC2 /* Leap.h */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		02E5A2441BDBDC4100BDCBC2 /* leapmotion */ = {
+		02E5A27F1BDBEFBF00BDCBC2 /* leapmotion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 02E5A24C1BDBDC4100BDCBC2 /* Build configuration list for PBXNativeTarget "leapmotion" */;
+			buildConfigurationList = 02E5A2871BDBEFBF00BDCBC2 /* Build configuration list for PBXNativeTarget "leapmotion" */;
 			buildPhases = (
-				02E5A2411BDBDC4100BDCBC2 /* Sources */,
-				02E5A2421BDBDC4100BDCBC2 /* Frameworks */,
-				02E5A2431BDBDC4100BDCBC2 /* CopyFiles */,
+				02E5A27C1BDBEFBF00BDCBC2 /* Sources */,
+				02E5A27D1BDBEFBF00BDCBC2 /* Frameworks */,
+				02E5A27E1BDBEFBF00BDCBC2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -83,53 +97,53 @@
 			);
 			name = leapmotion;
 			productName = leapmotion;
-			productReference = 02E5A2451BDBDC4100BDCBC2 /* leapmotion */;
+			productReference = 02E5A2801BDBEFBF00BDCBC2 /* leapmotion */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		02E5A23D1BDBDC4100BDCBC2 /* Project object */ = {
+		02E5A2781BDBEFBF00BDCBC2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jesse Liang";
 				TargetAttributes = {
-					02E5A2441BDBDC4100BDCBC2 = {
+					02E5A27F1BDBEFBF00BDCBC2 = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 02E5A2401BDBDC4100BDCBC2 /* Build configuration list for PBXProject "leapmotion" */;
+			buildConfigurationList = 02E5A27B1BDBEFBF00BDCBC2 /* Build configuration list for PBXProject "leapmotion" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 02E5A23C1BDBDC4100BDCBC2;
-			productRefGroup = 02E5A2461BDBDC4100BDCBC2 /* Products */;
+			mainGroup = 02E5A2771BDBEFBF00BDCBC2;
+			productRefGroup = 02E5A2811BDBEFBF00BDCBC2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				02E5A2441BDBDC4100BDCBC2 /* leapmotion */,
+				02E5A27F1BDBEFBF00BDCBC2 /* leapmotion */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		02E5A2411BDBDC4100BDCBC2 /* Sources */ = {
+		02E5A27C1BDBEFBF00BDCBC2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02E5A2491BDBDC4100BDCBC2 /* main.cpp in Sources */,
+				02E5A2841BDBEFBF00BDCBC2 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		02E5A24A1BDBDC4100BDCBC2 /* Debug */ = {
+		02E5A2851BDBEFBF00BDCBC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -171,7 +185,7 @@
 			};
 			name = Debug;
 		};
-		02E5A24B1BDBDC4100BDCBC2 /* Release */ = {
+		02E5A2861BDBEFBF00BDCBC2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -206,16 +220,24 @@
 			};
 			name = Release;
 		};
-		02E5A24D1BDBDC4100BDCBC2 /* Debug */ = {
+		02E5A2881BDBEFBF00BDCBC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		02E5A24E1BDBDC4100BDCBC2 /* Release */ = {
+		02E5A2891BDBEFBF00BDCBC2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -223,24 +245,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		02E5A2401BDBDC4100BDCBC2 /* Build configuration list for PBXProject "leapmotion" */ = {
+		02E5A27B1BDBEFBF00BDCBC2 /* Build configuration list for PBXProject "leapmotion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				02E5A24A1BDBDC4100BDCBC2 /* Debug */,
-				02E5A24B1BDBDC4100BDCBC2 /* Release */,
+				02E5A2851BDBEFBF00BDCBC2 /* Debug */,
+				02E5A2861BDBEFBF00BDCBC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		02E5A24C1BDBDC4100BDCBC2 /* Build configuration list for PBXNativeTarget "leapmotion" */ = {
+		02E5A2871BDBEFBF00BDCBC2 /* Build configuration list for PBXNativeTarget "leapmotion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				02E5A24D1BDBDC4100BDCBC2 /* Debug */,
-				02E5A24E1BDBDC4100BDCBC2 /* Release */,
+				02E5A2881BDBEFBF00BDCBC2 /* Debug */,
+				02E5A2891BDBEFBF00BDCBC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 02E5A23D1BDBDC4100BDCBC2 /* Project object */;
+	rootObject = 02E5A2781BDBEFBF00BDCBC2 /* Project object */;
 }
