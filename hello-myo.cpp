@@ -126,15 +126,21 @@ public:
             // that we can fill the rest of the field with spaces below, so we obtain it as a string using toString().
             std::string poseString = currentPose.toString();
 
-            std::cout << '[' << (isUnlocked ? "unlocked" : "locked  ") << ']'
+            std::cout << '[' << (isUnlocked ? "unlocked" : "locked  ") << ']' // remove lock
                       << '[' << (whichArm == myo::armLeft ? "L" : "R") << ']'
-                      << '[' << poseString << std::string(14 - poseString.size(), ' ') << ']';
+                      << '[' << poseString << std::string(14 - poseString.size(), ' ') << ']'; // i think these are the gesture names
         } else {
             // Print out a placeholder for the arm and pose when Myo doesn't currently know which arm it's on.
             std::cout << '[' << std::string(8, ' ') << ']' << "[?]" << '[' << std::string(14, ' ') << ']';
         }
 
         std::cout << std::flush;
+    }
+
+    void print_pose() {
+        std::cout << '\r';
+
+        std::cout << std::string currentPost.toString(); << std::endl;
     }
 
     // These values are set by onArmSync() and onArmUnsync() above.
@@ -189,6 +195,17 @@ int main(int argc, char** argv)
         // After processing events, we call the print() member function we defined above to print out the values we've
         // obtained from any events that have occurred.
         collector.print();
+
+        // this might work
+        std::string gesture = collector.print_pose(); // gesture theyre making
+        
+        if(gesture == "fist"){ // determines that the user's gesture is a fist
+            std::cout << "Play audio here" << std::endl;
+        } else {
+            std::cout << "Nope" << std::endl;
+        }
+        // end of this might work
+        
     }
 
     // If a standard exception occurred, we print out its message and exit.
