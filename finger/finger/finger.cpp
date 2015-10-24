@@ -133,7 +133,6 @@ public:
         
         std::cout << std::flush;
     }
-    
     // These values are set by onArmSync() and onArmUnsync() above.
     bool onArm;
     myo::Arm whichArm;
@@ -181,6 +180,8 @@ int main(int argc, char** argv)
         hub.addListener(&collector);
         
         // Finally we enter our main loop.
+        float pitch = collector.pitch_w;
+        float yaw = collector.yaw_w;
         while (1) {
             // In each iteration of our main loop, we run the Myo event loop for a set number of milliseconds.
             // In this case, we wish to update our display 20 times a second, so we run for 1000/20 milliseconds.
@@ -188,7 +189,25 @@ int main(int argc, char** argv)
             // After processing events, we call the print() member function we defined above to print out the values we've
             // obtained from any events that have occurred.
             //collector.print();
-            if(collector.currentPose.toString() == "fist"){
+            std::string pose = collector.currentPose.toString();
+            float init_pitch = collector.pitch_w;
+            float init_yaw = collector.yaw_w;
+            float move_pitch = (init_pitch - pitch) * -1; // calculate the movement of the pitch
+            float move_yaw = (init_yaw - yaw) * -1; // calculate the movement of the yaw
+            // if roll > 10? or something
+            // after calculations
+            if(move_pitch >= 1) {
+                std::cout << "YES" << std::endl;
+            } else {
+                std::cout << "NO" << std::endl;
+            }
+            
+            //std::cout << "pitch: " << init_pitch << ", yaw: "<< init_yaw << std::endl;
+            pitch = init_pitch; // pitch should be around ~ 5+ difference
+            yaw = init_yaw; // yaw should be 1 - 2 difference
+            // whatever might not need yaw or roll just do pitch
+            
+            if(pose == "fist"){
                 std::cout << "FISTBUMP!" << std::endl;
                 // play music based on calculations from leap motion
             } else {
