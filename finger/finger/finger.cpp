@@ -12,6 +12,7 @@
 
 // The only file that needs to be included to use the Myo C++ SDK is myo.hpp.
 #include <myo/myo.hpp>
+#include <SFML/audio.hpp>
 
 // Classes that inherit from myo::DeviceListener can be used to receive events from Myo devices. DeviceListener
 // provides several virtual functions for handling different kinds of events. If you do not override an event, the
@@ -235,7 +236,8 @@ int main(int argc, char** argv)
                 move_yaw = init_yaw - yaw;
             }
             
-            collector.print_emg();
+            // need machine learning here
+            //collector.print_emg();
             
             // after calculations
             if(move_pitch >= 1) {
