@@ -23,7 +23,7 @@ using namespace Leap;
 class DataCollector : public myo::DeviceListener {
 public:
     DataCollector()
-    : onArm(false), isUnlocked(true), roll_w(0), pitch_w(0), yaw_w(0), currentPose(), emgSamples()
+    : onArm(false), isUnlocked(true), roll_w(0), pitch_w(0), yaw_w(0), currentPose()
     {
     }
     
@@ -121,32 +121,6 @@ public:
     // These values are set by onOrientationData() and onPose() above.
     int roll_w, pitch_w, yaw_w;
     myo::Pose currentPose;
-    
-    // onEmgData() is called whenever a paired Myo has provided new EMG data, and EMG streaming is enabled.
-    void onEmgData(myo::Myo* myo, uint64_t timestamp, const int8_t* emg)
-    {
-        for (int i = 0; i < 8; i++) {
-            emgSamples[i] = emg[i];
-        }
-    }
-    // There are other virtual functions in DeviceListener that we could override here, like onAccelerometerData().
-    // For this example, the functions overridden above are sufficient.
-    // We define this function to print the current values that were updated by the on...() functions above.
-    void print_emg()
-    {
-        // Clear the current line
-        std::cout << '\r';
-        // Print out the EMG data.
-        for (size_t i = 0; i < emgSamples.size(); i++) {
-            std::ostringstream oss;
-            oss << static_cast<int>(emgSamples[i]);
-            std::string emgString = oss.str();
-            std::cout << '[' << emgString << std::string(4 - emgString.size(), ' ') << ']';
-        }
-        std::cout << std::flush;
-    }
-    // The values of this array is set by onEmgData() above.
-    std::array<int8_t, 8> emgSamples;
 };
 
 
@@ -188,54 +162,37 @@ void SampleListener::onExit(const Controller& controller) {
 }
 
 void SampleListener::onFrame(const Controller& controller) {
-    // Get the most recent frame and report some basic information
-    const Frame frame = controller.frame();
-    
-    HandList hands = frame.hands();
-    for (HandList::const_iterator hl = hands.begin(); hl != hands.end(); ++hl) {
-        // Get the first hand
-        const Hand hand = *hl;
-        // Get the hand's normal vector and direction
+    try {
+        // First, we create a Hub with our application identifier. Be sure not to use the com.example namespace when
+        // publishing your application. The Hub provides access to one or more Myos.
+        myo::Hub hub("io.github.devinmui.finger");
         
-        const Vector position = hand.palmPosition();
-        // We catch any exceptions that might occur below -- see the catch statement for more details.
-        try {
+        std::cout << "Attempting to find a Myo..." << std::endl;
+        
+        myo::Myo* myo = hub.waitForMyo(10000);
+        
+        if (!myo) {
+            throw std::runtime_error("Unable to find a Myo!");
+        }
+        
+        std::cout << "Connected to a Myo armband!" << std::endl << std::endl;
+        
+        DataCollector collector;
+        
+        hub.addListener(&collector);
+        
+        float pitch = collector.pitch_w;
+        float yaw = collector.yaw_w;
+        const Frame frame = controller.frame();
+        
+        HandList hands = frame.hands();
+        while(1) {
+            // this doesnt execute...
+            for (HandList::const_iterator hl = hands.begin(); hl != hands.end(); ++hl) {
+                const Hand hand = *hl;
             
-            std::cout << hand.palmPosition()[2] << std::endl;
-            // First, we create a Hub with our application identifier. Be sure not to use the com.example namespace when
-            // publishing your application. The Hub provides access to one or more Myos.
-            myo::Hub hub("com.example.hello-myo");
             
-            std::cout << "Attempting to find a Myo..." << std::endl;
-            
-            // Next, we attempt to find a Myo to use. If a Myo is already paired in Myo Connect, this will return that Myo
-            // immediately.
-            // waitForMyo() takes a timeout value in milliseconds. In this case we will try to find a Myo for 10 seconds, and
-            // if that fails, the function will return a null pointer.
-            myo::Myo* myo = hub.waitForMyo(10000);
-            
-            // If waitForMyo() returned a null pointer, we failed to find a Myo, so exit with an error message.
-            if (!myo) {
-                throw std::runtime_error("Unable to find a Myo!");
-            }
-            
-            // We've found a Myo.
-            std::cout << "Connected to a Myo armband!" << std::endl << std::endl;
-            
-            myo->setStreamEmg(myo::Myo::streamEmgEnabled);
-            
-            // Next we construct an instance of our DeviceListener, so that we can register it with the Hub.
-            DataCollector collector;
-            
-            // Hub::addListener() takes the address of any object whose class inherits from DeviceListener, and will cause
-            // Hub::run() to send events to all registered device listeners.
-            hub.addListener(&collector);
-            
-            // Finally we enter our main loop.
-            float pitch = collector.pitch_w;
-            float yaw = collector.yaw_w;
-            
-            while (1) {
+                //while (1) {
                 // In each iteration of our main loop, we run the Myo event loop for a set number of milliseconds.
                 // In this case, we wish to update our display 20 times a second, so we run for 1000/20 milliseconds.
                 hub.run(1000/20);
@@ -243,6 +200,7 @@ void SampleListener::onFrame(const Controller& controller) {
                 // obtained from any events that have occurred.
                 //collector.print();
                 std::string pose = collector.currentPose.toString();
+                std::cout << hand.palmPosition()[2] << std::endl;
                 float init_pitch = collector.pitch_w;
                 float init_yaw = collector.yaw_w;
                 float move_pitch = 0;
@@ -257,41 +215,38 @@ void SampleListener::onFrame(const Controller& controller) {
                 } else {
                     move_yaw = init_yaw - yaw;
                 }
-                
-                // need machine learning here
-                //collector.print_emg();
-                
+            
                 // after calculations
                 if(move_pitch >= 1) {
                     std::cout << "YES" << std::endl;
                 } else {
                     std::cout << "NO" << std::endl;
                 }
-                
+            
                 //std::cout << "pitch: " << init_pitch << ", yaw: "<< init_yaw << std::endl;
                 pitch = init_pitch; // pitch should be around ~ 5+ difference
                 yaw = init_yaw; // yaw should be 1 - 2 difference
                 // whatever might not need yaw or roll just do pitch
-                
+            
                 if(pose == "fist"){
                     std::cout << "FISTBUMP!" << std::endl;
                     // play music based on calculations from leap motion
                 } else {
                     std::cout << "No fistbump :(" << std::endl;
                 }
-                
             }
-            
-            // If a standard exception occurred, we print out its message and exit.
-        } catch (const std::exception& e) {
-            std::cerr << "Error: " << e.what() << std::endl;
-            std::cerr << "Press enter to continue.";
-            std::cin.ignore();
         }
-
+        
+        // If a standard exception occurred, we print out its message and exit.
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Press enter to continue.";
+        std::cin.ignore();
+        //return -1;
     }
     
 }
+
 
 
 void SampleListener::onFocusGained(const Controller& controller) {
@@ -337,7 +292,6 @@ int main(int argc, char** argv)
     
     // Remove the sample listener when done
     controller.removeListener(listener);
-    
-    return 0;
+
 }
 

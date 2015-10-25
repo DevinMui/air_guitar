@@ -24,7 +24,7 @@
                   moduleName = "finger"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/devin/Desktop/air_guitar/finger/finger/finger.cpp"
-                  timestampString = "467421356.073026"
+                  timestampString = "467425318.060355"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
@@ -39,7 +39,7 @@
                   moduleName = "finger"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/devin/Desktop/air_guitar/finger/finger/finger.cpp"
-                  timestampString = "467421356.074053"
+                  timestampString = "467425318.060882"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
@@ -54,12 +54,60 @@
                   moduleName = "finger"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/devin/Desktop/air_guitar/finger/finger/finger.cpp"
-                  timestampString = "467421356.074515"
+                  timestampString = "467425318.061323"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
                   endingLineNumber = "23"
                   offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "finger/finger.cpp"
+            timestampString = "467425317.766065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "SampleListener::onFrame(const Controller&amp; controller)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SampleListener::onFrame(Leap::Controller const&amp;)"
+                  moduleName = "finger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devin/Desktop/air_guitar/finger/finger/finger.cpp"
+                  timestampString = "467425101.198076"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "2021">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SampleListener::onFrame(Leap::Controller const&amp;)"
+                  moduleName = "finger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/devin/Desktop/air_guitar/finger/finger/finger.cpp"
+                  timestampString = "467425101.198914"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "2062">
                </Location>
             </Locations>
          </BreakpointContent>

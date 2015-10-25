@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02E5A2841BDBEFBF00BDCBC2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02E5A2831BDBEFBF00BDCBC2 /* main.cpp */; };
-		02E5A28E1BDBEFF400BDCBC2 /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E5A28D1BDBEFF400BDCBC2 /* libLeap.dylib */; settings = {ASSET_TAGS = (); }; };
+		02E5A28E1BDBEFF400BDCBC2 /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E5A28D1BDBEFF400BDCBC2 /* libLeap.dylib */; };
 		02E5A28F1BDBF00500BDCBC2 /* libLeap.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02E5A28D1BDBEFF400BDCBC2 /* libLeap.dylib */; };
 /* End PBXBuildFile section */
 
@@ -223,6 +223,7 @@
 		02E5A2881BDBEFBF00BDCBC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -234,6 +235,7 @@
 		02E5A2891BDBEFBF00BDCBC2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -261,6 +263,7 @@
 				02E5A2891BDBEFBF00BDCBC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

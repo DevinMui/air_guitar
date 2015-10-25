@@ -59,13 +59,10 @@ void SampleListener::onFrame(const Controller& controller) {
     const Frame frame = controller.frame();
     
     HandList hands = frame.hands();
-    for (HandList::const_iterator hl = hands.begin(); hl != hands.end(); ++hl) {
-        // Get the first hand
-        const Hand hand = *hl;
-        // Get the hand's normal vector and direction
-        std::cout << hand.palmPosition()[2] << std::endl;
-        const Vector position = hand.palmPosition();
-    }
+    HandList::const_iterator hl = hands.begin();
+    const Hand hand = *hl;
+    std::cout << hand.palmPosition()[2] << std::endl;
+    const Vector position = hand.palmPosition();
     
 }
 
