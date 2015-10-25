@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "finger/finger.cpp"
-            timestampString = "467420949.158197"
+            timestampString = "467463381.711689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -101,11 +101,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "finger/finger.cpp"
-            timestampString = "467459313.094337"
+            timestampString = "467463381.711689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "class SampleListener"
             landmarkType = "3">
             <Locations>
@@ -194,11 +194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "finger/finger.cpp"
-            timestampString = "467459313.094337"
+            timestampString = "467463381.711689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "SampleListener::onFrame(const Controller&amp; controller)"
             landmarkType = "5">
          </BreakpointContent>
@@ -210,11 +210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "finger/finger.cpp"
-            timestampString = "467459313.094337"
+            timestampString = "467468130.191817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "380"
-            endingLineNumber = "380"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
             <Locations>
@@ -318,11 +318,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "finger/finger.cpp"
-            timestampString = "467459313.094337"
+            timestampString = "467463381.711689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "onPair(myo::Myo* myo, uint64_t timestamp, myo::FirmwareVersion firmware_version)"
             landmarkType = "7">
          </BreakpointContent>

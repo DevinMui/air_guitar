@@ -14,6 +14,7 @@
 #include <myo/myo.hpp>
 #include <SFML/audio.hpp>
 #include <iostream>
+#include <thread>
 #include <cstring>
 #include <math.h>
 #include "Leap.h"
@@ -295,6 +296,70 @@ void SampleListener::onServiceDisconnect(const Controller& controller) {
     std::cout << "Service Disconnected" << std::endl;
 }
 
+void playSound(int inches) {
+    // play music based on calculations from leap motion
+    sf::Clock clock;
+    sf::Time elapsed = clock.getElapsedTime();
+    
+    sf::SoundBuffer buffer;
+    float foo = inches / 4;
+    foo = foo + 0.5;
+    int freq = (int) foo;
+    switch (freq) {
+        case 1:
+            buffer.loadFromFile("1A.wav"); //note file name
+            break;
+        case 2:
+            buffer.loadFromFile("1B.wav"); //note file name
+            break;
+        case 3:
+            buffer.loadFromFile("1C.wav"); //note file name
+            break;
+        case 4:
+            buffer.loadFromFile("1D.wav"); //note file name
+            break;
+        case 5:
+            buffer.loadFromFile("1E.wav"); //note file name
+            break;
+        case 6:
+            buffer.loadFromFile("1F.wav"); //note file name
+            break;
+        case 7:
+            buffer.loadFromFile("1G.wav"); //note file name
+            break;
+        case 8:
+            buffer.loadFromFile("2A.wav"); //note file name
+            break;
+        case 9:
+            buffer.loadFromFile("2B.wav"); //note file name
+            break;
+        case 10:
+            buffer.loadFromFile("2C.wav"); //note file name
+            break;
+        case 11:
+            buffer.loadFromFile("2D.wav"); //note file name
+            break;
+        case 12:
+            buffer.loadFromFile("2E.wav"); //note file name
+            break;
+        case 13:
+            buffer.loadFromFile("2F.wav"); //note file name
+            break;
+        case 14:
+            buffer.loadFromFile("2G.wav"); //note file name
+            break;
+
+    }
+    
+    sf::Sound sound;
+    sound.setBuffer(buffer);
+    
+    while (elapsed.asSeconds() < 0.6) {
+        sound.play();
+        elapsed = clock.getElapsedTime();
+    }
+}
+
 int main(int argc, char** argv)
 {
     SampleListener listener;
@@ -322,11 +387,15 @@ int main(int argc, char** argv)
         float yaw = collector.yaw_w;
         while(1){
             const Frame frame = controller.frame();
+            double foo;
             HandList hands = frame.hands();
             for (HandList::const_iterator hl = hands.begin(); hl != hands.end(); hl++) {
                 const Hand hand = *hl;
-                double foo = hand.palmPosition()[2];
+                foo = hand.palmPosition()[2];
                 std::cout << std::to_string(foo) << std::endl;
+            }
+            if(foo < 0){
+                foo = foo * -1;
             }
             hub.run(1000/20);
             std::string pose = collector.currentPose.toString();
@@ -352,20 +421,9 @@ int main(int argc, char** argv)
             
             if(pose == "fist" && move_pitch >= 1){
                 std::cout << "FISTBUMP!" << std::endl;
-                // play music based on calculations from leap motion
-                sf::Clock clock;
-                sf::Time elapsed = clock.getElapsedTime();
-                
-                sf::SoundBuffer buffer;
-                buffer.loadFromFile("1A.wav"); //note file name
-                sf::Sound sound;
-                sound.setBuffer(buffer);
-                
-                while (elapsed.asSeconds() < 0.6) {
-                    sound.play();
-                    elapsed = clock.getElapsedTime();
-                }
+                playSound((int) (foo+0.5));
             } else {
+                playSound((int) ((rand() % 64 + 4)) + 0.5); // open note lel
                 std::cout << ":(" << std::endl;
             }
         
