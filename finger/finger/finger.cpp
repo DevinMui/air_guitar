@@ -9,7 +9,7 @@
 #include <array>
 #include <sstream>
 #include <stdexcept>
-
+#include <future>
 // The only file that needs to be included to use the Myo C++ SDK is myo.hpp.
 #include <myo/myo.hpp>
 #include <SFML/audio.hpp>
@@ -354,7 +354,7 @@ void playSound(int inches) {
     sf::Sound sound;
     sound.setBuffer(buffer);
     
-    while (elapsed.asSeconds() < 0.6) {
+    while (elapsed.asSeconds() < 0.25) {
         sound.play();
         elapsed = clock.getElapsedTime();
     }
@@ -421,9 +421,13 @@ int main(int argc, char** argv)
             
             if(pose == "fist" && move_pitch >= 1 && foo > 0){
                 std::cout << "FISTBUMP!" << std::endl;
-                playSound((int) (foo+0.5));
+                //playSound((int) (foo+0.5));
+                std::future<void> result(std::async(playSound, (int) foo + 0.5));
+                result.get();
             } else if(pose == "fist" && move_pitch >= 1) {
-                playSound((int) ((rand() % 64 + 4)) + 0.5); // open note lel
+                //playSound((int) (); // open note lel
+                std::future<void> result(std::async(playSound, (int) (rand() % 64 + 4) + 0.5));
+                result.get();
                 std::cout << ":(" << std::endl;
             }
         
