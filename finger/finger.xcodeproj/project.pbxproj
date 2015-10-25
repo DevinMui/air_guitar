@@ -12,6 +12,18 @@
 		037403001BDBDB2200389DCC /* myo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037402FE1BDBDB0B00389DCC /* myo.framework */; };
 		037403211BDC45B600389DCC /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0374031E1BDC45B600389DCC /* libLeap.dylib */; };
 		037403221BDC472A00389DCC /* libLeap.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0374031E1BDC45B600389DCC /* libLeap.dylib */; };
+		037403291BDCDC2800389DCC /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037403231BDCDC2800389DCC /* sfml-audio.framework */; };
+		0374032A1BDCDC2800389DCC /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037403241BDCDC2800389DCC /* sfml-graphics.framework */; };
+		0374032B1BDCDC2800389DCC /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037403251BDCDC2800389DCC /* sfml-network.framework */; };
+		0374032C1BDCDC2800389DCC /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037403261BDCDC2800389DCC /* sfml-system.framework */; };
+		0374032D1BDCDC2800389DCC /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037403271BDCDC2800389DCC /* sfml-window.framework */; };
+		0374032E1BDCDC2800389DCC /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037403281BDCDC2800389DCC /* SFML.framework */; };
+		0374032F1BDCDD0600389DCC /* sfml-audio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037403231BDCDC2800389DCC /* sfml-audio.framework */; };
+		037403301BDCDD0600389DCC /* sfml-graphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037403241BDCDC2800389DCC /* sfml-graphics.framework */; };
+		037403311BDCDD0600389DCC /* sfml-network.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037403251BDCDC2800389DCC /* sfml-network.framework */; };
+		037403321BDCDD0600389DCC /* sfml-system.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037403261BDCDC2800389DCC /* sfml-system.framework */; };
+		037403331BDCDD0600389DCC /* sfml-window.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037403271BDCDC2800389DCC /* sfml-window.framework */; };
+		037403341BDCDD0600389DCC /* SFML.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037403281BDCDC2800389DCC /* SFML.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,6 +33,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				0374032F1BDCDD0600389DCC /* sfml-audio.framework in CopyFiles */,
+				037403301BDCDD0600389DCC /* sfml-graphics.framework in CopyFiles */,
+				037403311BDCDD0600389DCC /* sfml-network.framework in CopyFiles */,
+				037403321BDCDD0600389DCC /* sfml-system.framework in CopyFiles */,
+				037403331BDCDD0600389DCC /* sfml-window.framework in CopyFiles */,
+				037403341BDCDD0600389DCC /* SFML.framework in CopyFiles */,
 				037403221BDC472A00389DCC /* libLeap.dylib in CopyFiles */,
 				037403001BDBDB2200389DCC /* myo.framework in CopyFiles */,
 			);
@@ -35,6 +53,27 @@
 		0374031E1BDC45B600389DCC /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libLeap.dylib; sourceTree = "<group>"; };
 		0374031F1BDC45B600389DCC /* LeapMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapMath.h; sourceTree = "<group>"; };
 		037403201BDC45B600389DCC /* Leap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leap.h; sourceTree = "<group>"; };
+		037403231BDCDC2800389DCC /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "sfml-audio.framework"; sourceTree = "<group>"; };
+		037403241BDCDC2800389DCC /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "sfml-graphics.framework"; sourceTree = "<group>"; };
+		037403251BDCDC2800389DCC /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "sfml-network.framework"; sourceTree = "<group>"; };
+		037403261BDCDC2800389DCC /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "sfml-system.framework"; sourceTree = "<group>"; };
+		037403271BDCDC2800389DCC /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "sfml-window.framework"; sourceTree = "<group>"; };
+		037403281BDCDC2800389DCC /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SFML.framework; sourceTree = "<group>"; };
+		037403351BDCDD2F00389DCC /* SFML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SFML; sourceTree = "<group>"; };
+		037403361BDCDD8200389DCC /* 1A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1A.wav; sourceTree = "<group>"; };
+		037403371BDCDD8200389DCC /* 1B.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1B.wav; sourceTree = "<group>"; };
+		037403381BDCDD8200389DCC /* 1C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1C.wav; sourceTree = "<group>"; };
+		037403391BDCDD8200389DCC /* 1D.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1D.wav; sourceTree = "<group>"; };
+		0374033A1BDCDD8200389DCC /* 1E.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1E.wav; sourceTree = "<group>"; };
+		0374033B1BDCDD8200389DCC /* 1F.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1F.wav; sourceTree = "<group>"; };
+		0374033C1BDCDD8200389DCC /* 1G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1G.wav; sourceTree = "<group>"; };
+		0374033D1BDCDD8200389DCC /* 2A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2A.wav; sourceTree = "<group>"; };
+		0374033E1BDCDD8200389DCC /* 2B.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2B.wav; sourceTree = "<group>"; };
+		0374033F1BDCDD8200389DCC /* 2C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2C.wav; sourceTree = "<group>"; };
+		037403401BDCDD8200389DCC /* 2D.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2D.wav; sourceTree = "<group>"; };
+		037403411BDCDD8200389DCC /* 2E.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2E.wav; sourceTree = "<group>"; };
+		037403421BDCDD8C00389DCC /* 2F.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2F.wav; sourceTree = "<group>"; };
+		037403431BDCDD8C00389DCC /* 2G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2G.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,8 +81,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				037403291BDCDC2800389DCC /* sfml-audio.framework in Frameworks */,
 				037403211BDC45B600389DCC /* libLeap.dylib in Frameworks */,
 				037402FF1BDBDB0B00389DCC /* myo.framework in Frameworks */,
+				0374032D1BDCDC2800389DCC /* sfml-window.framework in Frameworks */,
+				0374032E1BDCDC2800389DCC /* SFML.framework in Frameworks */,
+				0374032C1BDCDC2800389DCC /* sfml-system.framework in Frameworks */,
+				0374032B1BDCDC2800389DCC /* sfml-network.framework in Frameworks */,
+				0374032A1BDCDC2800389DCC /* sfml-graphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +123,27 @@
 		037402E01BDBD5DD00389DCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				037403421BDCDD8C00389DCC /* 2F.wav */,
+				037403431BDCDD8C00389DCC /* 2G.wav */,
+				037403361BDCDD8200389DCC /* 1A.wav */,
+				037403371BDCDD8200389DCC /* 1B.wav */,
+				037403381BDCDD8200389DCC /* 1C.wav */,
+				037403391BDCDD8200389DCC /* 1D.wav */,
+				0374033A1BDCDD8200389DCC /* 1E.wav */,
+				0374033B1BDCDD8200389DCC /* 1F.wav */,
+				0374033C1BDCDD8200389DCC /* 1G.wav */,
+				0374033D1BDCDD8200389DCC /* 2A.wav */,
+				0374033E1BDCDD8200389DCC /* 2B.wav */,
+				0374033F1BDCDD8200389DCC /* 2C.wav */,
+				037403401BDCDD8200389DCC /* 2D.wav */,
+				037403411BDCDD8200389DCC /* 2E.wav */,
+				037403351BDCDD2F00389DCC /* SFML */,
+				037403231BDCDC2800389DCC /* sfml-audio.framework */,
+				037403241BDCDC2800389DCC /* sfml-graphics.framework */,
+				037403251BDCDC2800389DCC /* sfml-network.framework */,
+				037403261BDCDC2800389DCC /* sfml-system.framework */,
+				037403271BDCDC2800389DCC /* sfml-window.framework */,
+				037403281BDCDC2800389DCC /* SFML.framework */,
 				0374031E1BDC45B600389DCC /* libLeap.dylib */,
 				0374031F1BDC45B600389DCC /* LeapMath.h */,
 				037403201BDC45B600389DCC /* Leap.h */,
@@ -235,7 +301,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path";
+				LD_RUNPATH_SEARCH_PATHS = "@rpath @loader_path @executable_path/Frameworks @rpath/Frameworks @rpath/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -252,7 +318,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path";
+				LD_RUNPATH_SEARCH_PATHS = "@rpath @loader_path @executable_path/Frameworks @rpath/Frameworks @rpath/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -17,6 +17,13 @@
 #include <cstring>
 #include <math.h>
 #include "Leap.h"
+#include <vector>
+#include <stdexcept>
+#include <SFML/Audio.hpp>
+#include <SFML/System.hpp>
+#include <iostream>
+#define SFML_CLOCK_HPP
+#define SFML_SOUNDBUFFER_HPP
 
 using namespace Leap;
 
@@ -25,6 +32,11 @@ public:
     DataCollector()
     : onArm(false), isUnlocked(true), roll_w(0), pitch_w(0), yaw_w(0), currentPose()
     {
+    }
+    
+    void onPair(myo::Myo* myo, uint64_t timestamp, myo::FirmwareVersion firmware_version) {
+        knownMyos.push_back(myo);
+        std::cout << myo << std::endl;
     }
     
     // onUnpair() is called whenever the Myo is disconnected from Myo Connect by the user.
@@ -66,8 +78,9 @@ public:
     // making a fist, or not making a fist anymore.
     void onPose(myo::Myo* myo, uint64_t timestamp, myo::Pose pose)
     {
+        int o = identifyMyo(myo);
         currentPose = pose;
-        
+        std::cout << o << std::endl;
         
         // Tell the Myo to stay unlocked until told otherwise. We do that here so you can hold the poses without the
         // Myo becoming locked.
@@ -121,6 +134,18 @@ public:
     // These values are set by onOrientationData() and onPose() above.
     int roll_w, pitch_w, yaw_w;
     myo::Pose currentPose;
+    
+    size_t identifyMyo(myo::Myo* myo) {
+        for(size_t i = 0; i < knownMyos.size(); i++) {
+            if(knownMyos[i] == myo) {
+                return i + 1;
+            }
+        }
+        
+        return 0;
+    }
+    
+    std::vector<myo::Myo*> knownMyos;
 };
 
 
@@ -180,14 +205,20 @@ void SampleListener::onFrame(const Controller& controller) {
         DataCollector collector;
             
         hub.addListener(&collector);
-            
+        
         float pitch = collector.pitch_w;
         float yaw = collector.yaw_w;
                 
         for (HandList::const_iterator hl = hands.begin(); hl != hands.end(); hl++) {
             const Hand hand = *hl;
             hub.run(1000/20);
-            double foo = hand.palmPosition()[2];
+            double foo;
+            if(hand.palmPosition()[2]<0){
+                foo = hand.palmPosition()[2] * -1;
+            } else {
+                foo = hand.palmPosition()[2];
+            }
+            std::cout << collector.whichArm << std::endl;
             std::cout << std::to_string(foo) << std::endl;
             std::string pose = collector.currentPose.toString();
             float init_pitch = collector.pitch_w;
@@ -314,31 +345,35 @@ int main(int argc, char** argv)
                 move_yaw = init_yaw - yaw;
             }
             
-            // after calculations
-            if(move_pitch >= 1) {
-                std::cout << "YES" << std::endl;
-            } else {
-                std::cout << "NO" << std::endl;
-            }
-            
             //std::cout << "pitch: " << init_pitch << ", yaw: "<< init_yaw << std::endl;
             pitch = init_pitch; // pitch should be around ~ 5+ difference
             yaw = init_yaw; // yaw should be 1 - 2 difference
             // whatever might not need yaw or roll just do pitch
             
-            if(pose == "fist"){
+            if(pose == "fist" && move_pitch >= 1){
                 std::cout << "FISTBUMP!" << std::endl;
                 // play music based on calculations from leap motion
+                sf::Clock clock;
+                sf::Time elapsed = clock.getElapsedTime();
+                
+                sf::SoundBuffer buffer;
+                buffer.loadFromFile("1A.wav"); //note file name
+                sf::Sound sound;
+                sound.setBuffer(buffer);
+                
+                while (elapsed.asSeconds() < 0.6) {
+                    sound.play();
+                    elapsed = clock.getElapsedTime();
+                }
             } else {
-                std::cout << "No fistbump :(" << std::endl;
+                std::cout << ":(" << std::endl;
             }
         
         }
         } catch (const std::exception& e) {
             std::cerr << "Error: " << e.what() << std::endl;
             std::cerr << "Press enter to continue.";
-            std::cin.ignore()
-            ;
+            std::cin.ignore();
             return -1;
         }
     

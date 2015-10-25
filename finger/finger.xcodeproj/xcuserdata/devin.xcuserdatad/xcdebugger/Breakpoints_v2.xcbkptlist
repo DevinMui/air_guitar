@@ -101,11 +101,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "finger/finger.cpp"
-            timestampString = "467435730.994716"
+            timestampString = "467459313.094337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "class SampleListener"
             landmarkType = "3">
             <Locations>
@@ -194,11 +194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "finger/finger.cpp"
-            timestampString = "467438692.177056"
+            timestampString = "467459313.094337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "SampleListener::onFrame(const Controller&amp; controller)"
             landmarkType = "5">
          </BreakpointContent>
@@ -210,12 +210,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "finger/finger.cpp"
-            timestampString = "467439139.047781"
+            timestampString = "467459313.094337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
             landmarkName = "main(int argc, char** argv)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "finger/finger.cpp"
+            timestampString = "467459313.094337"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "onPair(myo::Myo* myo, uint64_t timestamp, myo::FirmwareVersion firmware_version)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
