@@ -387,7 +387,7 @@ int main(int argc, char** argv)
         float yaw = collector.yaw_w;
         while(1){
             const Frame frame = controller.frame();
-            double foo;
+            double foo = 0;
             HandList hands = frame.hands();
             for (HandList::const_iterator hl = hands.begin(); hl != hands.end(); hl++) {
                 const Hand hand = *hl;
@@ -419,10 +419,10 @@ int main(int argc, char** argv)
             yaw = init_yaw; // yaw should be 1 - 2 difference
             // whatever might not need yaw or roll just do pitch
             
-            if(pose == "fist" && move_pitch >= 1){
+            if(pose == "fist" && move_pitch >= 1 && foo > 0){
                 std::cout << "FISTBUMP!" << std::endl;
                 playSound((int) (foo+0.5));
-            } else {
+            } else if(pose == "fist" && move_pitch >= 1) {
                 playSound((int) ((rand() % 64 + 4)) + 0.5); // open note lel
                 std::cout << ":(" << std::endl;
             }
